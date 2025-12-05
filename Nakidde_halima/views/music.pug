@@ -1,0 +1,61 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Music Upload
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='css/styles.css')
+  
+.container.mt-5
+  .row.g-4
+    .col-md-6
+      .card.shadow-lg.p-4
+        h2.text-center.mb-4 Upload Your Music 
+        form#musicUploadForm(action='/musicUpload' method='POST' enctype='multipart/form-data')
+          .mb-3
+            label.profile-pic-label(for='profile_pic_upload')
+              img#profile_pic_preview.profile-pic(src='placeholder.png' alt='Album Art Placeholder')
+              span Upload Photo
+            input#profile_pic_upload(type='file' name='profile_pic' accept='image/jpeg, image/png, image/gif' style='display: none;')
+            span#profileError.error-msg
+          .mb-3
+            input#songtitle.form-control(type='text' name='songtitle' placeholder='Enter song title')
+            span#songError.error-msg
+          .mb-3
+            input#artist.form-control(type='text' name='artist' placeholder='Enter artist')
+            span#artistError.error-msg
+          .mb-3
+            input#album.form-control(type='text' name='album' placeholder='Enter album')
+            span#albumError.error-msg
+          .mb-3
+            input#releaseDate.form-control(type='date' name='releaseDate')
+            span#dateError.error-msg
+          .mb-3
+            input#audio.form-control(type='file' name='audio' accept='audio/*')
+            span#audioError.error-msg
+          button.btn.btn-dark.w-100(type='submit') UPLOAD
+    .col-md-6
+      .card.shadow-lg.p-4
+        h2.text-center.mb-4 Upload Your Music
+        form#musicUploadForm2(action='/musicUpload' method='POST' enctype='multipart/form-data')
+          .mb-3
+            label.form-label(for='profile_pic_upload2') Upload Profile Picture:
+            input#profile_pic_upload2.form-control(type='file' name='profile_pic' accept='image/png, image/jpeg, image/gif')
+          .mb-3
+            label.form-label(for='songtitle2') Song Title
+            input#songtitle2.form-control(type='text' name='songtitle' placeholder='Enter song title')
+          .mb-3
+            label.form-label(for='artist2') Artist
+            input#artist2.form-control(type='text' name='artist' placeholder='Enter artist')
+          .mb-3
+            label.form-label(for='album2') Album
+            input#album2.form-control(type='text' name='album' placeholder='Enter album')
+          .mb-3
+            label.form-label(for='releaseDate2') Year of Release
+            input#releaseDate2.form-control(type='date' name='releaseDate')
+          .mb-3
+            label.form-label(for='audio2') Upload Audio File
+            input#audio2.form-control(type='file' name='audio' accept='audio/*')
+            
+          button.btn.btn-primary.w-100(type='submit') SUBMIT
+script(src='js/script.js')
